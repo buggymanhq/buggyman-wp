@@ -411,6 +411,7 @@ class Buggyman
 
         if (count(self::$storage)) {
             self::sendReport(self::$storage);
+            self::$storage = array();
         }
     }
 
@@ -418,6 +419,7 @@ class Buggyman
     {
         if (count(self::$storage)) {
             self::sendReport(self::$storage);
+            self::$storage = array();
         }
     }
 
