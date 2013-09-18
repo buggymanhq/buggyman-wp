@@ -3,7 +3,7 @@
 Plugin Name: Buggyman.io for Wordpress
 Plugin URI: http://buggyman.io/
 Description: Integrates Wordpress and Buggyman.io
-Version: 1.0
+Version: 1.3
 Author: Buggyman.io
 Author URI: http://buggyman.io
 */
