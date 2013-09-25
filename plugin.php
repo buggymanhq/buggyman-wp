@@ -3,7 +3,7 @@
 Plugin Name: Buggyman.io for Wordpress
 Plugin URI: http://buggyman.io/
 Description: Integrates Wordpress and Buggyman.io
-Version: 1.3
+Version: 1.3.1
 Author: Buggyman.io
 Author URI: http://buggyman.io
 */
@@ -23,7 +23,9 @@ function buggyman_init()
         $buggyman->setToken($phpToken);
         $buggyman->init();
 
-        wp_enqueue_script( 'buggyman-js', 'http://cdn.buggyman.io/v1/js/' . $jsToken . '/collector.js', array(), '1.0.0', false );
+        if (!$_SERVER['HTTPS']) {
+            wp_enqueue_script( 'buggyman-js', 'http://cdn.buggyman.io/v1/js/' . $jsToken . '/collector.js', array(), '1.0.0', false );
+        }
 
 
     } else {
@@ -33,7 +35,7 @@ function buggyman_init()
 
 function buggyman_not_configured()
 {
-    echo "<div class='updated'><p>Buggyman.io not configured. Please, <a href='/admin.php?page=buggyman'>configure it right now</a></p></div>";
+    echo "<div class='updated'><p>Buggyman.io not configured. Please, <a href='/wp-admin/admin.php?page=buggyman'>configure it right now</a></p></div>";
 }
 
 
